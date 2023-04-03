@@ -34,7 +34,7 @@ export function UserList() {
       {isLoading && <h3>Carregando...</h3>}
       {isError && <h3>Ocorreu algum problema :(</h3>}
       {userList.map((user) => (
-        <UserCard user={user} onClickEdit={onClickEdit} />
+        <UserCard user={user} key={user.id} onClickEdit={onClickEdit} />
       ))}
     </Container>
   );

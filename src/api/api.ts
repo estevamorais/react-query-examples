@@ -1,14 +1,18 @@
 import axios from "axios";
 import { User } from "../models/UserModel";
-const URL = "https://627fe5d97532b4920f69de5e.mockapi.io/";
 
-async function getUsers(): Promise<User[]> {
-  const response = await axios.get<User[]>(`${URL}users`);
+const mockApi = axios.create({
+  baseURL: "https://642ada4cb11efeb759a48df5.mockapi.io"
+})
+
+const getUsers = async (): Promise<User[]> => {
+  const response = await mockApi.get<User[]>('users');
 
   return response.data;
 }
-async function updateUserName(userId: string, name: string): Promise<User> {
-  const response = await axios.put<User>(`${URL}users/${userId}`, { name });
+
+const updateUserName = async (userId: string, name: string): Promise<User> => {
+  const response = await mockApi.put<User>(`users/${userId}`, { name });
 
   return response.data;
 }
