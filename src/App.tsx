@@ -1,4 +1,6 @@
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider, } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 import { UserList } from "./components/UserList/UserList";
 
 const queryClient = new QueryClient()
@@ -9,6 +11,7 @@ function App() {
       <div>
         <UserList />
       </div>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
